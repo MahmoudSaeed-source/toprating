@@ -1,16 +1,44 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./components/header/Header";
+const fontDiner = localFont({
+  src: "./fonts/FontdinerSwanky-Regular.ttf",
+  variable: "--font-diner",
+  style: "normal",
+});
+const EduFont = {
+  src: [
+    {
+      Path: "./fonts/EduAUVICWANTArrows-Bold.ttf",
+      weight: "bold",
+      style:"normal",
+    },
+    {
+      Path: "./fonts/EduAUVICWANTArrows-Medium.ttf",
+      weight: "500",
+      style:"normal",
+    },
+    {
+      Path: "./fonts/EduAUVICWANTArrows-SemiBold.ttf",
+      weight: "700",
+      style:"normal",
+    },
+   
+  ],
+  variable:"--font-edu"
+}
+const playFair = localFont({
+  src: [
+    {
+      path: "./fonts/PlayfairDisplay-ExtraBold.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--play-fair",
+});
+  
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -20,9 +48,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={` ${EduFont.variable} ${playFair.variable} `}>
+        <Header />
         {children}
       </body>
     </html>
